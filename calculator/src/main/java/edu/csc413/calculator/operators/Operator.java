@@ -2,6 +2,7 @@ package edu.csc413.calculator.operators;
 
 import edu.csc413.calculator.evaluator.Operand;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Operator {
@@ -15,10 +16,15 @@ public abstract class Operator {
     // HashMap operators = new HashMap();
     // operators.put( "+", new AdditionOperator() );
     // operators.put( "-", new SubtractionOperator() );
-    static Map<String,Operator> operators;
+    private static Map<String,Operator> operators;
 
-    static{
-        operators.put("+",new AddOperator());
+    static {
+        operators = new HashMap<>();
+        operators.put("+", new AddOperator());
+        operators.put("-", new SubtractOperator());
+        operators.put("*", new MultiplyOperator());
+        operators.put("/", new DivideOperator());
+        operators.put("^", new PowerOperator());
     }
 
     /**
