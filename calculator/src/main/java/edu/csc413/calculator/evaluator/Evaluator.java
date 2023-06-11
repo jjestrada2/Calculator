@@ -28,7 +28,7 @@ public class Evaluator {
     // the priority of any operator in the operator stack other than
     // the usual mathematical operators - "+-*/" - should be less than the priority
     // of the usual operators
-
+    operatorStack.clear();
 
 
     while ( this.expressionTokenizer.hasMoreTokens() ) {
@@ -49,7 +49,7 @@ public class Evaluator {
           // skeleton for an example.
           Operator newOperator = Operator.getOperator(expressionToken);
         
-          while (operatorStack.peek().priority() >= newOperator.priority() ) {
+          while (!operatorStack.isEmpty() && (operatorStack.peek().priority() >= newOperator.priority()) ) {
             // note that when we eval the expression 1 - 2 we will
             // push the 1 then the 2 and then do the subtraction operation
             // This means that the first number to be popped is the

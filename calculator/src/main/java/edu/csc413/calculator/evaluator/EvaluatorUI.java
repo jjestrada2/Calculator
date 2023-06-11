@@ -75,7 +75,31 @@ public class EvaluatorUI extends JFrame implements ActionListener {
      *                    button is pressed.
      */
     public void actionPerformed(ActionEvent actionEventObject) {
+        String buttonLabel = ((JButton) actionEventObject.getSource()).getText();
 
+        if(buttonLabel.equals("=")){
+          Evaluator ev =  new Evaluator();
+            try {
+                int result = ev.evaluateExpression(expressionTextField.getText());
+                expressionTextField.setText(String.valueOf(result));
+            } catch (InvalidTokenException e) {
+                expressionTextField.setText("Invalid expression");
+                throw new RuntimeException(e);
+            }
+        } else if (buttonLabel.equals("C")) {
+            expressionTextField.setText("");
+
+        } else if (buttonLabel.equals("CE")) {
+            String lastExpression = expressionTextField.getText();
+            if(lastExpression.length()>1){
+                expressionTextField.setText(lastExpression.substring(0,lastExpression.length()-1));
+            }else{
+                expressionTextField.setText("");
+            }
+
+        }else{
+            expressionTextField.setText(expressionTextField.getText()+buttonLabel);
+        }
 
     }
 }
