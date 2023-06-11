@@ -10,7 +10,7 @@ public class SubtractOperator extends Operator{
 
     @Override
     public Operand execute(Operand operandOne, Operand operandTwo) {
-        Operand result = new Operand(operandOne.getValue()-operandTwo.getValue());
+        Operand result = new Operand((operandOne.getValue())-(operandTwo.getValue()));
         return result;
     }
 }
