@@ -25,6 +25,8 @@ public abstract class Operator {
         operators.put("*", new MultiplyOperator());
         operators.put("/", new DivideOperator());
         operators.put("^", new PowerOperator());
+        operators.put("(", new OpenParenthesesOperator());
+        operators.put(")", new CloseParenthesesOperator());
     }
 
     /**
@@ -54,7 +56,7 @@ public abstract class Operator {
         return operators.get(token);
     }
 
-    
+
      /**
      * determines if a given token is a valid operator.
      * please do your best to avoid static checks
