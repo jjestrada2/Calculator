@@ -1,6 +1,6 @@
 # CSC 413 - Project One
 
-## Student Name  : Juan
+## Student Name  : Juan Estrada
 
 ## Student ID    : 923058731
 
